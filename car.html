@@ -40,7 +40,7 @@
         // Configurações das curvas
         let curveOffset = 0; // Deslocamento inicial da base
         const curveSpeed = 0.05; // Velocidade do deslocamento
-        const curveAmplitude = 100; // Amplitude máxima das curvas
+        const curveAmplitude = 400//100; // Amplitude máxima das curvas
         let frame = 0; // Contador de quadros
 
         // Função para desenhar a cena
@@ -56,22 +56,13 @@
             ctx.lineTo(WIDTH, horizonY);
             ctx.stroke();
 
-            // Triângulo principal (estrada)
-            ctx.fillStyle = "gray";
-            ctx.beginPath();
-            ctx.moveTo(WIDTH / 2 - roadWidthTop / 2, roadTopY); // Topo esquerdo
-            ctx.lineTo(WIDTH / 2 + roadWidthTop / 2, roadTopY); // Topo direito
-            ctx.lineTo(WIDTH / 2 + roadWidthBase / 2, roadBaseY); // Base direita
-            ctx.lineTo(WIDTH / 2 - roadWidthBase / 2, roadBaseY); // Base esquerda
-            ctx.closePath();
-            ctx.fill();
-
+            
             // Triângulo invertido (curvas)
             curveOffset = Math.sin(frame * curveSpeed) * curveAmplitude;
             ctx.fillStyle = "white";
             ctx.beginPath();
-            ctx.moveTo(WIDTH / 2 - roadWidthTop / 2, roadTopY); // Topo esquerdo
-            ctx.lineTo(WIDTH / 2 + roadWidthTop / 2, roadTopY); // Topo direito
+            ctx.moveTo(WIDTH / 2 - roadWidthTop *4 , roadBaseY); // Topo esquerdo
+            ctx.lineTo(WIDTH / 2 + roadWidthTop *4, roadBaseY); // Topo direito
             ctx.lineTo(WIDTH / 2 + curveOffset, roadTopY - 100); // Ponta invertida
             ctx.closePath();
             ctx.fill();
