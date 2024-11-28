@@ -55,7 +55,10 @@
             ctx.lineTo(WIDTH, horizonY);
             ctx.stroke();
             roadTopY=roadTopY+20
-            if (roadTopY>roadBaseY-100 )roadTopY=100
+            if (roadTopY>roadBaseY-100 ){
+                roadTopY=100
+                curveOffset = Math.sin(frame * curveSpeed) * curveAmplitude;
+            }
             
             // Triângulo principal (estrada)
             ctx.fillStyle = "white";
@@ -67,7 +70,7 @@
             ctx.closePath();
             ctx.fill();
             // Triângulo invertido (curvas)
-            curveOffset = Math.sin(frame * curveSpeed) * curveAmplitude;
+            
             ctx.fillStyle = "white";
             ctx.beginPath();
             ctx.moveTo(WIDTH / 2  - roadWidthTop * 2 , roadTopY); // Topo esquerdo
