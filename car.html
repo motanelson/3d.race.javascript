@@ -58,8 +58,8 @@
             if (roadTopY>roadBaseY-100 ){
                 roadTopY=50
                 curveOffset =curveOffset+roadplus 
-                if (curveOffset>WIDTH)roadplus=-40;
-                if (curveOffset<0)roadplus=+40;
+                if (curveOffset>WIDTH+WIDTH/2)roadplus=-40;
+                if (curveOffset<-(WIDTH/2))roadplus=+40;
             }
             
             // Triângulo principal (estrada)
