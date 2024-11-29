@@ -75,7 +75,8 @@
             ctx.beginPath();
             ctx.moveTo(WIDTH / 2  - roadWidthTop * 2 , roadTopY); // Topo esquerdo
             ctx.lineTo(WIDTH / 2 + roadWidthTop * 2, roadTopY); // Topo direito
-            ctx.lineTo(WIDTH / 2 + curveOffset, horizonY); // Ponta invertida
+            ctx.lineTo(WIDTH / 2 + curveOffset+60, horizonY); // Ponta invertida
+            ctx.lineTo(WIDTH / 2 + curveOffset-60, horizonY); // Ponta invertida
             ctx.closePath();
             ctx.fill();
         }
