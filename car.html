@@ -35,7 +35,7 @@
         const roadBaseY = HEIGHT; // Base da estrada
         const roadWidthTop = 100; // Largura do topo do triângulo principal
         const roadWidthBase = 300; // Largura da base do triângulo principal
-
+        roadplus=20;
         // Configurações das curvas
         let curveOffset = 0; // Deslocamento inicial da base
         const curveSpeed = 0.05; // Velocidade do deslocamento
@@ -56,8 +56,10 @@
             ctx.stroke();
             roadTopY=roadTopY+20
             if (roadTopY>roadBaseY-100 ){
-                roadTopY=100
-                curveOffset = Math.sin(frame * curveSpeed) * curveAmplitude;
+                roadTopY=50
+                curveOffset =curveOffset+roadplus 
+                if (curveOffset>WIDTH)roadplus=-40;
+                if (curveOffset<0)roadplus=+40;
             }
             
             // Triângulo principal (estrada)
@@ -75,8 +77,8 @@
             ctx.beginPath();
             ctx.moveTo(WIDTH / 2  - roadWidthTop * 2 , roadTopY); // Topo esquerdo
             ctx.lineTo(WIDTH / 2 + roadWidthTop * 2, roadTopY); // Topo direito
-            ctx.lineTo(WIDTH / 2 + curveOffset+60, horizonY); // Ponta invertida
-            ctx.lineTo(WIDTH / 2 + curveOffset-60, horizonY); // Ponta invertida
+            ctx.lineTo(0 + curveOffset+60, horizonY); // Ponta invertida
+            ctx.lineTo(0 + curveOffset-60, horizonY); // Ponta invertida
             ctx.closePath();
             ctx.fill();
         }
