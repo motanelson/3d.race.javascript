@@ -1,13 +1,19 @@
-def nots(list1):
-    list3=[]
-    for count in range(len(list1)):
-        value=0
-        value1=list1[count] & 1
-        value=(value1 + 1) & 1
-        list3=list3+[value]
-    return list3    
-l1=[0,1,0,1]
 
-l3=nots(l1)
-print(l1)
-print(l3)
+class Qubits:
+    def __init__(self):
+        self.value=0
+    def __str__(self):
+        if self.value==0:
+            return "Zero"
+        if self.value==1:
+            return "One"
+
+    def X(self):
+        self.value=(self.value+1) & 1
+        
+        
+
+
+q=Qubits()
+q.X()
+print(q)
