@@ -1,15 +1,26 @@
-def ands(list1,list2):
-    list3=[]
-    for count in range(len(list1)):
-        value=0
-        value1=list1[count] & 1
-        value2=list2[count] & 1
-        value=value1 & value2
-        list3=list3+[value]
-    return list3    
-l1=[0,1,0,1]
-l2=[1,1,1,1]
-l3=ands(l1,l2)
-print(l1)
-print(l2)
-print(l3)
+
+class Qubits:
+    def __init__(self):
+        self.value=0
+    def __str__(self):
+        if self.value==0:
+            return "Zero"
+        if self.value==1:
+            return "One"
+    def __hash__(self):
+        return self.value
+    def X(self):
+        self.value=(self.value+1) & 1
+    def Y(self,lists):
+        self.value=1
+        for n in lists:
+            self.value=(self.value & 1) & (n & 1) & 1 
+
+
+q1=Qubits()
+q2=Qubits()
+q3=Qubits()
+q1.X()
+q2.X()
+q3.Y([q1.value,q2.value])
+print(q3)
