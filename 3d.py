@@ -20,14 +20,20 @@ def draw_wireframe(screen, wire_string):
     w=w//8
     x=w
     counter=0
-    nnn=1.555
+    # Draw the center cross
+    pygame.draw.line(screen, LINE_COLOR, (0, 0), (WINDOW_WIDTH, WINDOW_HEIGHT), 1)
+    pygame.draw.line(screen, LINE_COLOR, (0, WINDOW_HEIGHT), (WINDOW_WIDTH, 0), 1)
+
+
+    BLACK = (0, 0, 0)
     mm=[260,224,186,150,112,76,36,0,0,0,0,0]
     for i, char in enumerate(wire_string):
         
 
         if char == "#":
             # Draw two horizontal lines to represent the wall
-            
+            pygame.draw.rect(screen, BLACK, (x, 0,w,WINDOW_HEIGHT ))
+            pygame.draw.rect(screen, BLACK, (WINDOW_WIDTH-x-w, 0,w,WINDOW_HEIGHT ))
             pygame.draw.line(screen, LINE_COLOR, (x,CENTER_Y-mm[counter]), (x,CENTER_Y+mm[counter] ), 1)
             
             pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x,CENTER_Y-mm[counter]), (WINDOW_WIDTH-x,CENTER_Y+mm[counter] ), 1)
@@ -35,16 +41,12 @@ def draw_wireframe(screen, wire_string):
             pygame.draw.line(screen, LINE_COLOR, (x+w,CENTER_Y-mm[counter+1]), (x+w,CENTER_Y+mm[counter+1] ), 1)
             
             pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x-w,CENTER_Y-mm[counter+1]), (WINDOW_WIDTH-x-w,CENTER_Y+mm[counter+1] ), 1)
-
+            
             pass
         x=x+w
         counter+=1
         
-        nnn=nnn+0.1
-    # Draw the center cross
-    pygame.draw.line(screen, LINE_COLOR, (0, 0), (WINDOW_WIDTH, WINDOW_HEIGHT), 1)
-    pygame.draw.line(screen, LINE_COLOR, (0, WINDOW_HEIGHT), (WINDOW_WIDTH, 0), 1)
-
+        
 def main():
     pygame.init()
 
