@@ -21,17 +21,20 @@ def draw_wireframe(screen, wire_string):
     x=w
     counter=0
     nnn=1.555
+    mm=[260,224,186,150,112,76,36,0,0,0,0,0]
     for i, char in enumerate(wire_string):
         
 
         if char == "#":
             # Draw two horizontal lines to represent the wall
             
-            pygame.draw.line(screen, LINE_COLOR, (x,CENTER_Y-(8-counter)*(w/nnn)), (x,CENTER_Y+(8-counter)*(w/nnn) ), 1)
-            pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x,CENTER_Y-(8-counter)*(w/nnn)), (WINDOW_WIDTH-x,CENTER_Y+(8-counter)*(w/nnn) ), 1)
+            pygame.draw.line(screen, LINE_COLOR, (x,CENTER_Y-mm[counter]), (x,CENTER_Y+mm[counter] ), 1)
+            
+            pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x,CENTER_Y-mm[counter]), (WINDOW_WIDTH-x,CENTER_Y+mm[counter] ), 1)
             pass
         x=x+w
         counter+=1
+        
         nnn=nnn+0.1
     # Draw the center cross
     pygame.draw.line(screen, LINE_COLOR, (0, 0), (WINDOW_WIDTH, WINDOW_HEIGHT), 1)
@@ -45,7 +48,7 @@ def main():
     pygame.display.set_caption("Wireframe 3D Wall Viewer")
 
     # Input string (8 characters, '#' or ' ')
-    wire_string = "# # # # "  # Example input: "#" for wall, " " for no wall
+    wire_string = " # # # #"  # Example input: "#" for wall, " " for no wall
 
     # Main loop
     running = True
