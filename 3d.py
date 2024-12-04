@@ -41,6 +41,7 @@ def draw_wireframe(screen, wire_string):
             pygame.draw.line(screen, LINE_COLOR, (x+w,CENTER_Y-mm[counter+1]), (x+w,CENTER_Y+mm[counter+1] ), 1)
             
             pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x-w,CENTER_Y-mm[counter+1]), (WINDOW_WIDTH-x-w,CENTER_Y+mm[counter+1] ), 1)
+            
             pygame.draw.line(screen, LINE_COLOR, (x,CENTER_Y-mm[counter+1]), (x+w,CENTER_Y-mm[counter+1] ), 1)
             pygame.draw.line(screen, LINE_COLOR, (x,CENTER_Y+mm[counter+1]), (x+w,CENTER_Y+mm[counter+1] ), 1)
             pygame.draw.line(screen, LINE_COLOR, (WINDOW_WIDTH-x,CENTER_Y-mm[counter+1]), (WINDOW_WIDTH-x-w,CENTER_Y-mm[counter+1] ), 1)
@@ -49,7 +50,8 @@ def draw_wireframe(screen, wire_string):
             pass
         x=x+w
         counter+=1
-        
+        LINE_COLOR2 = (255, 255, 255)
+    pygame.draw.line(screen, LINE_COLOR2, (w*7,CENTER_Y-mm[6]) , (w*7,CENTER_Y+mm[6] ), 1)
         
 def main():
     pygame.init()
